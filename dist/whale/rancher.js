@@ -18,6 +18,8 @@ async function main(target_list) {
         }
     }
 }
+main(['demo-zsy', 'demo-tssk']);
+onUrlChange(() => main(['demo-zsy', 'demo-tssk']));
 function onUrlChange(fn) {
     let url = location.href;
     setInterval(() => {

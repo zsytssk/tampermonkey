@@ -18,6 +18,8 @@ async function main(target_list: string[]) {
         }
     }
 }
+main(['demo-zsy', 'demo-tssk']);
+onUrlChange(() => main(['demo-zsy', 'demo-tssk']));
 
 function onUrlChange(fn: () => void) {
     let url = location.href;

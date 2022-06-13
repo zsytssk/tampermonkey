@@ -1,0 +1,18 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "lib": ["dom", "dom.iterable", "es2020"],
+        "rootDir": "./src",
+        "outDir": "./dist",
+        "skipDefaultLibCheck": true,
+        "skipLibCheck": true,
+        "sourceMap": false,
+        "target": "es2018",
+        "watch": true,
+        "declaration": true,
+        "strict": true
+    },
+    "include": ["./src"]
+}

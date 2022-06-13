@@ -1,3 +1,17 @@
+// ==UserScript==
+// @name         demo-zsy
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://rancher-develop.meetwhale.com/p/c-t2g7l:p-gnhqj/workloads
+// @match        https://rancher-develop.meetwhale.com/p/c-t2g7l:p-gnhqj/ingresses
+// @icon         https://www.google.com/s2/favicons?sz=64&domain=meetwhale.com
+// @updateUR     https://raw.githubusercontent.com/zsytssk/tampermonkey/master/dist/whale/rancher.js
+// @grant        none
+// @run-at document-end
+// ==/UserScript==
+
 async function main(target_list: string[]) {
     await isReady();
     const regex = /\s+命名空间: ([^\s]+)/g;

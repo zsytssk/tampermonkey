@@ -44,6 +44,15 @@ function onUrlChange(fn: () => void) {
         url = location.href;
         fn();
     }, 500);
+
+    const wrap = document.querySelector('.ember-view table') as HTMLElement;
+    const config = { childList: true, subtree: true };
+    // 创建一个观察器实例并传入回调函数
+    const observer = new MutationObserver(() => {
+        fn();
+    });
+    // 以上述配置开始观察目标节点
+    observer.observe(wrap, config);
 }
 
 function isReady() {

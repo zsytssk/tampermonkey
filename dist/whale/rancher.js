@@ -13,7 +13,6 @@
 // @run-at document-end
 // ==/UserScript==
 async function main(target_list) {
-    await isReady();
     const regex = /\s+命名空间: ([^\s]+)/g;
     const list = [...document.querySelectorAll('.group')];
     for (const item of list) {
@@ -33,7 +32,8 @@ async function main(target_list) {
 }
 main(['demo-zsy', 'demo-tssk']);
 onUrlChange(() => main(['demo-zsy', 'demo-tssk']));
-function onUrlChange(fn) {
+async function onUrlChange(fn) {
+    await isReady();
     let url = location.href;
     setInterval(() => {
         if (url === location.href) {
@@ -44,11 +44,9 @@ function onUrlChange(fn) {
     }, 500);
     const wrap = document.querySelector('.ember-view table');
     const config = { childList: true, subtree: true };
-    // 创建一个观察器实例并传入回调函数
     const observer = new MutationObserver(() => {
         fn();
     });
-    // 以上述配置开始观察目标节点
     observer.observe(wrap, config);
 }
 function isReady() {

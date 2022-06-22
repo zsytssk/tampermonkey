@@ -2,7 +2,7 @@
 // ==UserScript==
 // @name         demo-zsy
 // @namespace    http://tampermonkey.net/
-// @version      0.2
+// @version      0.2.2
 // @description  try to take over the world!
 // @author       You
 // @match        https://rancher-develop.meetwhale.com/p/c-t2g7l:p-gnhqj/workloads
@@ -33,7 +33,6 @@ async function main(target_list) {
 main(['demo-zsy', 'demo-tssk']);
 onUrlChange(() => main(['demo-zsy', 'demo-tssk']));
 async function onUrlChange(fn) {
-    await isReady();
     let url = location.href;
     setInterval(() => {
         if (url === location.href) {
@@ -42,6 +41,7 @@ async function onUrlChange(fn) {
         url = location.href;
         fn();
     }, 500);
+    await isReady();
     const wrap = document.querySelector('.ember-view table');
     const config = { childList: true, subtree: true };
     const observer = new MutationObserver(() => {

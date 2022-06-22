@@ -40,9 +40,7 @@ async function onUrlChange(fn) {
         }
         url = location.href;
         fn();
-        watchDomChange(fn);
     }, 500);
-    watchDomChange(fn);
 }
 function watchDomChange(fn) {
     const wrap = document.querySelector('.ember-view table');

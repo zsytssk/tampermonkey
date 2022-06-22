@@ -42,10 +42,7 @@ async function onUrlChange(fn: () => void) {
         }
         url = location.href;
         fn();
-        watchDomChange(fn);
     }, 500);
-
-    watchDomChange(fn);
 }
 
 function watchDomChange(fn: () => void) {

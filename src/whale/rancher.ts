@@ -42,9 +42,13 @@ async function onUrlChange(fn: () => void) {
         }
         url = location.href;
         fn();
+        watchDomChange(fn);
     }, 500);
 
-    await isReady();
+    watchDomChange(fn);
+}
+
+function watchDomChange(fn: () => void) {
     const wrap = document.querySelector('.ember-view table') as HTMLElement;
     const config = { childList: true, subtree: true };
     const observer = new MutationObserver(() => {

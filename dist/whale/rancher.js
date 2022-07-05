@@ -1,4 +1,4 @@
-"use strict";
+'use strict';
 // ==UserScript==
 // @name         demo-zsy
 // @namespace    http://tampermonkey.net/
